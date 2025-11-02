@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini Agents (beta)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'background': 'hsl(var(--background))',
+              'surface': 'hsl(var(--surface))',
+              'primary': 'hsl(var(--primary))',
+              'secondary': 'hsl(var(--secondary))',
+              'accent': 'hsl(var(--accent))', 
+              'user-bubble': 'hsl(var(--user-bubble))',
+              'model-bubble': 'hsl(var(--model-bubble))',
+            },
+            animation: {
+                'fade-in': 'fadeIn 0.5s ease-out forwards',
+                'fade-in-subtle': 'fadeIn 0.8s ease-out forwards',
+                'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: 0, transform: 'translateY(12px)' },
+                    '100%': { opacity: 1, transform: 'translateY(0)' },
+                },
+            },
+            backdropBlur: {
+              'xl': '24px',
+            },
+          }
+        }
+      }
+    </script>
+  <style>
+    :root {
+      --background: 240 10% 3.9%;
+      --surface: 240 5% 10%;
+      --primary: 0 0% 98%;
+      --secondary: 240 5% 65%;
+      --accent: 45 66% 51%;
+      --user-bubble: 45 66% 51%;
+      --model-bubble: 240 5% 16%;
+    }
+    .light {
+      --background: 0 0% 100%;
+      --surface: 240 5% 96%;
+      --primary: 240 10% 3.9%;
+      --secondary: 240 5% 35%;
+      --accent: 45 66% 51%;
+      --user-bubble: 45 66% 51%;
+      --model-bubble: 240 5% 90%;
+    }
+    .scrollbar-thin {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--secondary)) transparent;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-primary">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
